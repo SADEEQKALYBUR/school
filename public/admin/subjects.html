@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Subjects</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+   <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item active">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Manage Subjects</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Add Subject Form -->
+    <div class="form-card">
+      <h3>Add New Subject</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Subject Name</label>
+          <input type="text" id="subject_name" placeholder="e.g. Mathematics" />
+        </div>
+
+        <div class="form-group">
+          <label>Subject Code</label>
+          <input type="text" id="subject_code" placeholder="e.g. MATH" />
+        </div>
+
+        <div class="form-group">
+          <label>Class</label>
+          <select id="class_id">
+            <option value="">-- Select Class --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button onclick="addSubject()" class="btn-add">+ Add Subject</button>
+        </div>
+      </div>
+
+      <div id="form-msg" class="form-msg hidden"></div>
+    </div>
+
+    <!-- Subjects Table -->
+    <div class="recent-section">
+      <h3>All Subjects</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Subject Name</th>
+            <th>Subject Code</th>
+            <th>Class</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="subjectsTable">
+          <tr>
+            <td colspan="5" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/subjects.js"></script>
+</body>
+</html>

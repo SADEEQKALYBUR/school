@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result Checker - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="Check your child's academic results online at Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS result checker, check school results online Kano">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/result-checker.html">
+  <meta property="og:title" content="Result Checker - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="Check your child's academic results online at Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/result-checker.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Result Checker - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="Check your child's academic results online at Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .checker-box {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .checker-box h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .checker-box p {
+      color: var(--text-light);
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .check-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .check-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .result-section {
+      margin-top: 40px;
+      display: none;
+    }
+
+    .result-header {
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .result-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .result-header p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .result-info {
+      background: white;
+      padding: 25px 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .info-item label {
+      font-size: 12px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .info-item span {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .result-table-wrapper {
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .result-table th {
+      background: #f5f5f5;
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .result-table td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .result-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .result-table tr:hover td {
+      background: #fafafa;
+    }
+
+    .grade-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .grade-A { background: #e8f5e9; color: #2e7d32; }
+    .grade-B { background: #e3f2fd; color: #1565c0; }
+    .grade-C { background: #fff3e0; color: #e65100; }
+    .grade-D { background: #fce4ec; color: #c62828; }
+    .grade-E { background: #fce4ec; color: #c62828; }
+    .grade-F { background: #fdecea; color: #c62828; }
+
+    .result-summary {
+      background: var(--primary);
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .summary-item {
+      text-align: center;
+    }
+
+    .summary-item h4 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .summary-item p {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 3px;
+    }
+
+    .print-result-btn {
+      padding: 10px 25px;
+      background: var(--gold);
+      color: var(--primary);
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .print-result-btn:hover {
+      background: white;
+    }
+
+    @media print {
+      .navbar, .page-hero, .checker-box,
+      .print-result-btn, footer, .section-header {
+        display: none !important;
+      }
+      .result-section {
+        display: block !important;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Result <span style="color:var(--gold)">Checker</span></h1>
+    <p>Check your academic results quickly and easily</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>Result Checker</span>
+    </div>
+  </div>
+
+  <!-- CHECKER -->
+  <section class="section">
+    <div class="container">
+      <div class="checker-box">
+        <h3>🔍 Check Your Result</h3>
+        <p>Enter your admission number and select session to view results</p>
+
+        <div class="input-group">
+          <label>Admission Number *</label>
+          <input type="text" id="admissionNo" placeholder="e.g. ADM-2026-001" />
+        </div>
+
+        <div class="input-group">
+          <label>Session *</label>
+          <select id="sessionSelect">
+            <option value="">-- Select Session --</option>
+          </select>
+        </div>
+        <div class="input-group">
+  <label>Term *</label>
+  <select id="termSelect">
+    <option value="">-- Select Term --</option>
+    <option value="First Term">First Term</option>
+    <option value="Second Term">Second Term</option>
+    <option value="Third Term">Third Term</option>
+  </select>
+</div>
+        <button class="check-btn" onclick="checkResult()">
+          🔍 Check Result
+        </button>
+
+        <div id="checkerMsg" style="margin-top:15px; font-size:14px; text-align:center; color:red"></div>
+      </div>
+
+      <!-- Result Display -->
+      <div class="result-section" id="resultSection">
+        <div style="max-width:800px; margin:0 auto">
+
+          <!-- Result Header -->
+          <div class="result-header">
+            <div>
+              <h3>🏫 SANI YAHAYA MEMORIAL SCHOOL</h3>
+              <p>Academic Result Sheet</p>
+            </div>
+            <button class="print-result-btn" onclick="window.print()">
+              🖨️ Print Result
+            </button>
+          </div>
+
+          <!-- Student Info -->
+          <div class="result-info">
+            <div class="info-item">
+              <label>Student Name</label>
+              <span id="resName">-</span>
+            </div>
+            <div class="info-item">
+              <label>Admission No</label>
+              <span id="resAdmission">-</span>
+            </div>
+            <div class="info-item">
+              <label>Class</label>
+              <span id="resClass">-</span>
+            </div>
+            <div class="info-item">
+              <label>Session</label>
+              <span id="resSession">-</span>
+            </div>
+            <div class="info-item">
+              <label>Gender</label>
+              <span id="resGender">-</span>
+            </div>
+            <div class="info-item">
+              <label>Serial No</label>
+              <span id="resSerial">-</span>
+            </div>
+          </div>
+
+          <!-- Results Table -->
+          <div class="result-table-wrapper">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Subject</th>
+                  <th>CA Score</th>
+                  <th>Exam Score</th>
+                  <th>Total</th>
+                  <th>Grade</th>
+                  <th>Remark</th>
+                </tr>
+              </thead>
+              <tbody id="resultBody"></tbody>
+            </table>
+          </div>
+
+          <!-- Summary -->
+          <div class="result-summary">
+            <div class="summary-item">
+              <h4 id="totalSubjects">0</h4>
+              <p>Subjects</p>
+            </div>
+            <div class="summary-item">
+              <h4 id="totalScore">0</h4>
+              <p>Total Score</p>
+            </div>
+            <div class="summary-item">
+              <h4 id="averageScore">0%</h4>
+              <p>Average</p>
+            </div>
+            <div class="summary-item">
+              <h4 id="overallGrade">-</h4>
+              <p>Overall Grade</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+  <script>
+    // Load sessions
+    async function loadSessions() {
+      try {
+        const response = await fetch('/website/api/sessions');
+        const data = await response.json();
+        const select = document.getElementById('sessionSelect');
+        if (data.success && data.data.length > 0) {
+          data.data.forEach(s => {
+            select.innerHTML += `<option value="${s.id}">${s.session_name}</option>`;
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    // Check result
+    async function checkResult() {
+    const session_id = document.getElementById('sessionSelect').value;
+    const term = document.getElementById('termSelect').value;
+      const msg = document.getElementById('checkerMsg');
+
+     if (!admission_number || !session_id || !term) {
+  msg.textContent = '❌ Da fatan za a cika Admission Number, Session da Term!';
+  return;
+}
+
+      msg.textContent = '⏳ Checking...';
+      msg.style.color = '#1a73e8';
+
+      const response = await fetch(
+        `/website/api/result?admission=${admission_number}&session=${session_id}&term=${encodeURIComponent(term)}`
+        );
+      const data = await response.json();
+
+      if (!data.success) {
+        msg.textContent = '❌ ' + data.message;
+        msg.style.color = 'red';
+        document.getElementById('resultSection').style.display = 'none';
+        return;
+      }
+
+      msg.textContent = '';
+
+      // Fill student info
+      const s = data.student;
+      document.getElementById('resName').textContent = s.full_name;
+      document.getElementById('resAdmission').textContent = s.admission_number;
+      document.getElementById('resClass').textContent = s.class_name || 'N/A';
+      document.getElementById('resSession').textContent = data.session_name;
+      document.getElementById('resGender').textContent = s.gender;
+      document.getElementById('resSerial').textContent = s.serial_number;
+
+      // Fill results
+      const results = data.results;
+      const tbody = document.getElementById('resultBody');
+
+      let totalScore = 0;
+      let gradeMap = { A:0, B:0, C:0, D:0, E:0, F:0 };
+
+      tbody.innerHTML = results.map((r, index) => {
+        totalScore += parseFloat(r.total_score);
+        gradeMap[r.grade] = (gradeMap[r.grade] || 0) + 1;
+
+        const remark =
+          r.grade === 'A' ? 'Excellent' :
+          r.grade === 'B' ? 'Very Good' :
+          r.grade === 'C' ? 'Good' :
+          r.grade === 'D' ? 'Pass' :
+          r.grade === 'E' ? 'Weak Pass' : 'Fail';
+
+        return `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${r.subject_name}</td>
+            <td>${r.ca_score}</td>
+            <td>${r.exam_score}</td>
+            <td><strong>${r.total_score}</strong></td>
+            <td><span class="grade-badge grade-${r.grade}">${r.grade}</span></td>
+            <td>${remark}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // Summary
+      const avg = results.length > 0 ? (totalScore / results.length).toFixed(1) : 0;
+      const overallGrade =
+        avg >= 70 ? 'A' :
+        avg >= 60 ? 'B' :
+        avg >= 50 ? 'C' :
+        avg >= 45 ? 'D' :
+        avg >= 40 ? 'E' : 'F';
+
+      document.getElementById('totalSubjects').textContent = results.length;
+      document.getElementById('totalScore').textContent = totalScore.toFixed(1);
+      document.getElementById('averageScore').textContent = avg + '%';
+      document.getElementById('overallGrade').textContent = overallGrade;
+
+      document.getElementById('resultSection').style.display = 'block';
+      document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    loadSessions();
+  </script>
+</body>
+</html>

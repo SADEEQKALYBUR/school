@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="Read what parents and students say about their experience at Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS testimonials, parent reviews school Kano">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/testimonials.html">
+  <meta property="og:title" content="Testimonials - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="Read what parents and students say about their experience at Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/testimonials.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Testimonials - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="Read what parents and students say about their experience at Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .quote-icon {
+      font-size: 50px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .author-avatar {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .author-info h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+    }
+    .author-info span {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .video-card {
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .video-thumb {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      cursor: pointer;
+      position: relative;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    }
+    .play-btn {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      bottom: 15px;
+      right: 15px;
+    }
+    .video-info {
+      padding: 20px;
+      color: white;
+    }
+    .video-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+    .video-info p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .rating-label {
+      font-size: 14px;
+      color: var(--text-dark);
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .rating-track {
+      flex: 1;
+      height: 10px;
+      background: var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .rating-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 5px;
+      transition: width 1s ease;
+    }
+    .rating-percent {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      width: 40px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>What People <span style="color:var(--gold)">Say</span></h1>
+    <p>Hear from our students, parents and alumni</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>Testimonials</span>
+    </div>
+  </div>
+
+  <!-- OVERALL RATING -->
+  <section style="background:var(--primary); padding:60px 0">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 2fr; gap:60px; align-items:center">
+        <div style="text-align:center">
+          <h2 style="font-size:80px; font-weight:800; color:var(--gold); line-height:1">4.9</h2>
+          <div style="font-size:30px; color:var(--gold); margin:10px 0">⭐⭐⭐⭐⭐</div>
+          <p style="color:rgba(255,255,255,0.8); font-size:15px">Overall Rating</p>
+          <p style="color:rgba(255,255,255,0.6); font-size:13px; margin-top:5px">Based on 500+ reviews</p>
+        </div>
+        <div>
+          <div class="rating-bar">
+            <span class="rating-label" style="color:white">Teaching Quality</span>
+            <div class="rating-track"><div class="rating-fill" style="width:98%"></div></div>
+            <span class="rating-percent">98%</span>
+          </div>
+          <div class="rating-bar">
+            <span class="rating-label" style="color:white">Facilities</span>
+            <div class="rating-track"><div class="rating-fill" style="width:95%"></div></div>
+            <span class="rating-percent">95%</span>
+          </div>
+          <div class="rating-bar">
+            <span class="rating-label" style="color:white">Safety</span>
+            <div class="rating-track"><div class="rating-fill" style="width:99%"></div></div>
+            <span class="rating-percent">99%</span>
+          </div>
+          <div class="rating-bar">
+            <span class="rating-label" style="color:white">Value for Money</span>
+            <div class="rating-track"><div class="rating-fill" style="width:93%"></div></div>
+            <span class="rating-percent">93%</span>
+          </div>
+          <div class="rating-bar">
+            <span class="rating-label" style="color:white">Communication</span>
+            <div class="rating-track"><div class="rating-fill" style="width:96%"></div></div>
+            <span class="rating-percent">96%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Parents Say</div>
+        <h2>Parent <span>Testimonials</span></h2>
+        <p>What our parents say about our school</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:25px">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">My children have been at Sani Yahaya Memorial School for 5 years and the transformation has been remarkable. The teachers are dedicated and the environment is nurturing. I highly recommend this school to every parent.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div class="author-info">
+              <h4>Hajiya Aisha Musa</h4>
+              <span>Parent of 2 Students</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The online portal is excellent! I can check my child's results, pay fees and monitor attendance from the comfort of my home. The school has embraced technology in a way that makes parenting much easier.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨</div>
+            <div class="author-info">
+              <h4>Malam Ibrahim Yusuf</h4>
+              <span>Parent of 3 Students</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">My daughter scored 8 A's in her WAEC examination after graduating from this school. The teachers go above and beyond to ensure every student understands the subject matter. Truly the best school in Kano.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨</div>
+            <div class="author-info">
+              <h4>Alhaji Suleiman Bello</h4>
+              <span>Parent of Graduate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The discipline and values instilled in my son at this school are commendable. He has grown from a shy boy into a confident young man. The extracurricular activities have been instrumental in his development.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div class="author-info">
+              <h4>Mrs. Fatima Garba</h4>
+              <span>Parent of JSS Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">From Nursery to Primary, my twins have received exceptional education here. The teachers know each child individually and address their unique learning needs. I am proud to be a parent of this school.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div class="author-info">
+              <h4>Dr. Hauwa Abdullahi</h4>
+              <span>Parent of Twins</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The school fees are very reasonable compared to the quality of education provided. The management is transparent and always communicates with parents. I wish I had attended this school myself!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨</div>
+            <div class="author-info">
+              <h4>Engr. Kabiru Usman</h4>
+              <span>Parent of SSS Student</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT TESTIMONIALS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Students Say</div>
+        <h2>Student <span>Voices</span></h2>
+        <p>What our students say about their experience</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:25px">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">This school gave me the foundation to excel in university. The Mathematics and Science teachers were exceptional. I am now studying Engineering at ABU Zaria thanks to the solid foundation I got here.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨‍🎓</div>
+            <div class="author-info">
+              <h4>Ahmad Sani Musa</h4>
+              <span>Alumni — Class of 2022</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">I love this school! The teachers are friendly and always willing to help. The library is amazing and the sports facilities are great. I have made lifelong friends here and learned so much.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍🎓</div>
+            <div class="author-info">
+              <h4>Fatima Ibrahim</h4>
+              <span>SSS 2 Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The debate club and drama society helped me discover my talent in public speaking. Now I represent the school at state competitions. This school truly nurtures hidden talents in every student.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨‍🎓</div>
+            <div class="author-info">
+              <h4>Usman Aliyu</h4>
+              <span>JSS 3 Student</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--primary); padding:80px 0">
+    <div class="container" style="text-align:center">
+      <h2 style="font-size:38px; font-weight:800; color:var(--white); margin-bottom:15px">
+        Join Our <span style="color:var(--gold)">Success Story</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:16px; margin-bottom:35px">
+        Be part of a school community that celebrates excellence
+      </p>
+      <div style="display:flex; gap:15px; justify-content:center">
+        <a href="/website/apply.html" class="btn-primary">Apply Now →</a>
+        <a href="/website/contact.html" class="btn-outline">Contact Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Card Generator</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    .id-card {
+      width: 320px;
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      border-radius: 16px;
+      padding: 20px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin: 20px auto;
+    }
+
+    .id-card-header {
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .id-card-header h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .id-card-header p {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-top: 3px;
+    }
+
+    .id-card-body {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .id-card-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      flex-shrink: 0;
+      border: 3px solid white;
+    }
+
+    .id-card-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .id-card-info p {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-bottom: 3px;
+    }
+
+    .id-card-footer {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .id-card-footer .admission {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .id-card-footer .serial {
+      font-size: 11px;
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 10px;
+    }
+
+    .id-card-preview {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-top: 25px;
+    }
+
+    .id-card-preview h3 {
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .print-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    @media print {
+  .sidebar,
+  .topbar,
+  .form-card,
+  .id-card-preview h3,
+  .id-card-preview > p,
+  .id-card-preview > div:last-child {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .id-card-preview {
+    display: flex !important;
+    justify-content: center;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .id-card {
+    box-shadow: none;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+ <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item active">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>ID Card Generator</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="form-card">
+      <h3>Search Student</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Select Class</label>
+          <select id="class_id" onchange="loadStudents()">
+            <option value="">-- Select Class --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Select Student</label>
+          <select id="student_id">
+            <option value="">-- Select Student --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button onclick="generateCard()" class="btn-add">
+            🪪 Generate ID Card
+          </button>
+        </div>
+      </div>
+    </div>
+
+   <!-- ID Card Preview -->
+<div class="id-card-preview" id="cardPreview" style="display:none">
+  <h3>ID Card Preview</h3>
+  <p style="color:#888; font-size:13px; margin-bottom:10px">
+    Preview below — click Print to print
+  </p>
+
+  <!-- ID Card -->
+  <div class="id-card" id="idCard">
+    <div class="id-card-header">
+      <div style="font-size:30px">🏫</div>
+      <h2 id="cardSchoolName">SCHOOL MANAGEMENT SYSTEM</h2>
+      <p>Student Identity Card</p>
+    </div>
+
+    <div class="id-card-body">
+      <div class="id-card-photo" id="cardPhotoDiv">
+        <img id="cardPhoto" src="" alt="Photo"
+          style="width:80px; height:80px; border-radius:50%;
+                 object-fit:cover; display:none;" />
+        <span id="cardPhotoEmoji">👨‍🎓</span>
+      </div>
+      <div class="id-card-info">
+        <h3 id="cardName">-</h3>
+        <p>Class: <strong id="cardClass">-</strong></p>
+        <p>Gender: <strong id="cardGender">-</strong></p>
+        <p>Session: <strong>2025/2026</strong></p>
+      </div>
+    </div>
+
+    <div class="id-card-footer">
+      <div class="admission">
+        Adm: <strong id="cardAdmission">-</strong>
+      </div>
+      <div class="serial" id="cardSerial">-</div>
+    </div>
+  </div>
+
+  <!-- Print Actions -->
+  <div style="display:flex; justify-content:center; gap:15px; margin-top:20px">
+    <button onclick="window.print()" class="btn-add">
+      🖨️ Print ID Card
+    </button>
+    <button onclick="generateAll()" class="btn-add" style="background:#2e7d32">
+      🖨️ Print All Class
+    </button>
+  </div>
+</div>
+
+    <!-- All Students Cards -->
+    <div id="allCardsSection" style="display:none">
+      <div id="allCards"></div>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/idcard.js"></script>
+</body>
+</html>

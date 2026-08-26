@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student/Parent Portal - Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <style>
+    .portal-note body {
+  background: linear-gradient(135deg, #0a1628, #1a2f4e);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-box">
+
+      <div class="school-logo">
+        <h1>🎓</h1>
+        <h2>Student/Parent Portal</h2>
+        <p>Login to view results & fees</p>
+      </div>
+
+      <div class="portal-note">
+        📌 <strong>Login Details:</strong><br>
+        Username: Admission Number<br>
+        Password: Parent Phone Number
+      </div>
+
+      <div id="error-msg" class="error-msg hidden"></div>
+
+      <form id="portalLoginForm">
+        <div class="form-group">
+          <label>Admission Number</label>
+          <input
+            type="text"
+            id="admission_number"
+            placeholder="e.g. ADM-2026-001"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password (Parent Phone)</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter parent phone number"
+            required
+          />
+        </div>
+
+        <button type="submit" id="loginBtn">Login</button>
+      </form>
+
+      <div style="text-align:center; margin-top:15px">
+        <a href="/auth/login" style="color:#1a73e8; font-size:13px">
+          Admin/Teacher Login →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('portalLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const admission_number = document.getElementById('admission_number').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+      const loginBtn = document.getElementById('loginBtn');
+
+      loginBtn.textContent = 'Loading...';
+      loginBtn.disabled = true;
+
+      const response = await fetch('/auth/parent-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ admission_number, password })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.href = data.redirect;
+      } else {
+        errorMsg.textContent = data.message;
+        errorMsg.classList.remove('hidden');
+        loginBtn.textContent = 'Login';
+        loginBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

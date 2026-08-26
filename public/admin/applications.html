@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications - Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+   <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item active">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Admission Applications</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" style="grid-template-columns:repeat(4,1fr); margin-bottom:25px">
+      <div class="stat-card blue">
+        <div class="stat-icon">📋</div>
+        <div class="stat-info">
+          <h3 id="totalApps">0</h3>
+          <p>Total Applications</p>
+        </div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-info">
+          <h3 id="pendingApps">0</h3>
+          <p>Pending</p>
+        </div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <h3 id="approvedApps">0</h3>
+          <p>Approved</p>
+        </div>
+      </div>
+      <div class="stat-card" style="background:white">
+        <div class="stat-icon">❌</div>
+        <div class="stat-info">
+          <h3 id="rejectedApps" style="color:#c62828">0</h3>
+          <p>Rejected</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="form-card" style="padding:20px">
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+        <label style="font-size:14px; font-weight:600; color:#555">Filter:</label>
+        <select id="filterStatus" onchange="loadApplications()" style="
+          padding:8px 15px; border:2px solid #e0e0e0;
+          border-radius:8px; font-size:14px; outline:none;
+        ">
+          <option value="all">All Applications</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+
+        <select id="filterClass" onchange="loadApplications()" style="
+          padding:8px 15px; border:2px solid #e0e0e0;
+          border-radius:8px; font-size:14px; outline:none;
+        ">
+          <option value="all">All Classes</option>
+          <option value="Playgroup">Playgroup</option>
+          <option value="Nursery 1">Nursery 1</option>
+          <option value="Primary 1">Primary 1</option>
+          <option value="JSS 1">JSS 1</option>
+          <option value="SSS 1">SSS 1</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Applications Table -->
+    <div class="recent-section">
+      <h3>All Applications</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Student Name</th>
+            <th>Gender</th>
+            <th>Applying For</th>
+            <th>Parent Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="applicationsTable">
+          <tr>
+            <td colspan="9" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- View Application Modal -->
+  <div id="modal" style="
+    display:none; position:fixed; top:0; left:0;
+    width:100%; height:100%; background:rgba(0,0,0,0.5);
+    z-index:9999; align-items:center; justify-content:center;
+  ">
+    <div style="
+      background:white; border-radius:16px; padding:35px;
+      max-width:600px; width:90%; max-height:80vh; overflow-y:auto;
+    ">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:25px">
+        <h3 style="font-size:20px; font-weight:700; color:#0a1628">Application Details</h3>
+        <button onclick="closeModal()" style="
+          background:none; border:none; font-size:24px;
+          cursor:pointer; color:#555;
+        ">×</button>
+      </div>
+
+      <div id="modalContent"></div>
+
+      <div style="display:flex; gap:10px; margin-top:25px" id="modalActions"></div>
+    </div>
+  </div>
+
+  <script src="/js/admin/applications.js"></script>
+</body>
+</html>

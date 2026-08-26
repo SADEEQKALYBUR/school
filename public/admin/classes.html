@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Classes</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+    <nav class="sidebar-nav">
+ <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item active">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Manage Classes</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Add Class Form -->
+    <div class="form-card">
+      <h3>Add New Class</h3>
+      <div class="form-row">
+
+        <div class="form-group">
+          <label>Class Name</label>
+          <input type="text" id="class_name" placeholder="e.g. Primary 1" />
+        </div>
+
+        <div class="form-group">
+          <label>Class Code</label>
+          <input type="text" id="class_code" placeholder="e.g. PRI1" />
+        </div>
+
+        <div class="form-group">
+          <label>Level</label>
+          <select id="level">
+            <option value="">-- Select Level --</option>
+            <option value="Playgroup">Playgroup</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Primary">Primary</option>
+            <option value="Junior Secondary">Junior Secondary</option>
+            <option value="Senior Secondary">Senior Secondary</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Next Class</label>
+          <select id="next_class_id">
+            <option value="">-- Select Next Class --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button onclick="addClass()" class="btn-add">+ Add Class</button>
+        </div>
+
+      </div>
+      <div id="form-msg" class="form-msg hidden"></div>
+    </div>
+
+    <!-- End of Session Promotion -->
+    <div class="form-card">
+      <h3>🎓 End of Session — Promote All Students</h3>
+      <p style="color:#666; font-size:14px; margin-bottom:15px;">
+        Add this button only at the end of the academic year/session to move all students to the next class.
+        Students in the final class will be marked as "Graduated."
+        This action cannot be undone — make sure you back up the database before clicking this button.
+      </p>
+      <button onclick="promoteAll()" class="btn-add" style="background:#c9a84c; color:#0a1628;">
+        🎓 Promote All Students
+      </button>
+      <div id="promote-msg" class="form-msg hidden"></div>
+    </div>
+
+    <!-- Classes Table -->
+    <div class="recent-section">
+      <h3>All Classes</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Class Name</th>
+            <th>Class Code</th>
+            <th>Level</th>
+            <th>Next Class</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="classesTable">
+          <tr>
+            <td colspan="6" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/classes.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Failed</title>
+  <link rel="stylesheet" href="/css/portal.css">
+  <style>
+    .failed-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f2f5;
+    }
+
+    .failed-card {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .failed-icon {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .failed-card h2 {
+      font-size: 24px;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    .failed-card p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .btn-retry {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #e53935;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      margin-right: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn-retry:hover {
+      background: #b71c1c;
+    }
+
+    .btn-home {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #1a73e8;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+
+    .btn-home:hover {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <div class="failed-container">
+    <div class="failed-card">
+      <div class="failed-icon">❌</div>
+      <h2>Payment Failed!</h2>
+      <p>
+        An kasa karɓar kuɗin ku!<br>
+        Da fatan za a sake gwadawa ko tuntuɓi makaranta.
+      </p>
+      <a href="/portal/dashboard" class="btn-retry">
+        🔄 Sake Gwadawa
+      </a>
+      <a href="/portal/dashboard" class="btn-home">
+        🏠 Koma Portal
+      </a>
+    </div>
+  </div>
+</body>
+</html>

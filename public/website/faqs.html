@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions - Sani Yahaya Memorial School</title>
+  <meta name="description" content="Find answers to common questions about admission, fees, and programs at Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS FAQs, school admission questions Kano, school fees FAQ">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/faqs.html">
+  <meta property="og:title" content="Frequently Asked Questions - Sani Yahaya Memorial School">
+  <meta property="og:description" content="Find answers to common questions about admission, fees, and programs at Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/faqs.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Frequently Asked Questions - Sani Yahaya Memorial School">
+  <meta name="twitter:description" content="Find answers to common questions about admission, fees, and programs at Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .faq-category {
+      margin-bottom: 40px;
+    }
+
+    .faq-category-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-question {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--off-white);
+    }
+
+    .faq-question.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .faq-icon {
+      font-size: 20px;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-question.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 20px 25px;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+    }
+
+    .faq-answer.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Frequently Asked <span style="color:var(--gold)">Questions</span></h1>
+    <p>Find answers to common questions about our school</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>FAQs</span>
+    </div>
+  </div>
+
+  <!-- FAQS -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width:800px; margin:0 auto">
+
+        <!-- Admission FAQs -->
+        <div class="faq-category">
+          <div class="faq-category-title">
+            <span>📝</span> Admission Questions
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I apply for admission?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              You can apply online through our website by visiting the Apply Now page. Fill out the application form with accurate information about the student and parent/guardian. You can also visit the school in person during working hours to collect and submit a physical application form.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is the age requirement for each class?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Playgroup: 2-3 years | Nursery 1: 3-4 years | Nursery 2: 4-5 years | Primary 1: 5-6 years | JSS 1: 11-12 years | SSS 1: 14-15 years. Age requirements may be flexible based on the child's academic ability.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What documents are required for admission?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Required documents include: Birth Certificate, 4 Passport Photographs, Previous School Report Card (if applicable), Medical/Health Certificate, Parent/Guardian ID Card, Proof of Residence, and Completed Application Form.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Is there an entrance examination?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, students applying for Primary 1 and above are required to sit for a placement test. This helps us determine the appropriate class level for the student. The test covers basic literacy and numeracy skills. Playgroup and Nursery students do not require an entrance exam.
+            </div>
+          </div>
+        </div>
+
+        <!-- Fees FAQs -->
+        <div class="faq-category">
+          <div class="faq-category-title">
+            <span>💰</span> Fees & Payment Questions
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How much are the school fees?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              School fees vary by level. Please visit our Admission page for the complete fee structure. Fees are charged per term and include tuition, exam fees, and other charges. Contact the school bursary for the most current fee schedule.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Can I pay school fees online?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes! You can pay school fees online through our Student Portal. We accept payments via Paystack which supports debit cards, bank transfers, and USSD. You will receive an automatic receipt after successful payment.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Is there a sibling discount?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, we offer a 10% discount on school fees for the second child and 15% for the third child and beyond from the same family. Please contact the school administration for more details on our sibling discount policy.
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic FAQs -->
+        <div class="faq-category">
+          <div class="faq-category-title">
+            <span>📚</span> Academic Questions
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How can I check my child's results?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              You can check results in two ways: (1) Visit our Result Checker page on the website and enter the student's admission number and select the session and term. (2) Login to the Student Portal using the admission number and parent phone number as password.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How many terms are in an academic session?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              There are three terms in each academic session: First Term (September - December), Second Term (January - April), and Third Term (April - July). Each term has continuous assessment tests and a final examination.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is the grading system?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Our grading system is: A (70-100) = Excellent, B (60-69) = Very Good, C (50-59) = Good, D (45-49) = Pass, E (40-44) = Weak Pass, F (0-39) = Fail. Each subject is scored out of 100 with 40 marks for Continuous Assessment and 60 marks for the final examination.
+            </div>
+          </div>
+        </div>
+
+        <!-- Portal FAQs -->
+        <div class="faq-category">
+          <div class="faq-category-title">
+            <span>💻</span> Student Portal Questions
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I login to the Student Portal?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              To login to the Student Portal, visit the Student Portal page and enter your Admission Number as the username and your Parent's Phone Number as the password. If you have trouble logging in, please contact the school administration.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What can I do on the Student Portal?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              On the Student Portal, you can: View and print academic results by term and session, Check school fees payment status and history, Make online payments via Paystack, View and print your Student ID Card, and Monitor attendance records.
+            </div>
+          </div>
+        </div>
+
+        <!-- General FAQs -->
+        <div class="faq-category">
+          <div class="faq-category-title">
+            <span>❓</span> General Questions
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What are the school hours?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              School hours are Monday to Friday: 7:30 AM - 4:00 PM. The school office is open Monday to Saturday: 8:00 AM - 4:00 PM. Students should arrive by 7:30 AM for morning assembly.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Does the school have a uniform?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, all students are required to wear the school uniform. The uniform can be purchased from the school store or approved vendors. School uniform consists of a white shirt/blouse, navy blue trousers/skirt, and black shoes.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I contact the school?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              You can contact us via phone at +234 800 000 0000, email at info@syms.edu.ng, or visit us at our address in Kano State, Nigeria. You can also fill out the contact form on our Contact Us page and we will respond within 24 hours.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--primary); padding:80px 0">
+    <div class="container" style="text-align:center">
+      <h2 style="font-size:38px; font-weight:800; color:var(--white); margin-bottom:15px">
+        Still Have <span style="color:var(--gold)">Questions?</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:16px; margin-bottom:35px">
+        Contact us directly and we will be happy to help you
+      </p>
+      <div style="display:flex; gap:15px; justify-content:center">
+        <a href="/website/contact.html" class="btn-primary">Contact Us →</a>
+        <a href="/website/apply.html" class="btn-outline">Apply Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+  <script>
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const isActive = element.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('active');
+        q.nextElementSibling.classList.remove('show');
+      });
+
+      // Open clicked if it was closed
+      if (!isActive) {
+        element.classList.add('active');
+        answer.classList.add('show');
+      }
+    }
+  </script>
+</body>
+</html>

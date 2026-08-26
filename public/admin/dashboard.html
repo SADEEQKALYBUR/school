@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+  <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item active">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+      <h2>Dashboard</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <div class="stat-icon">👨‍🎓</div>
+        <div class="stat-info">
+          <h3 id="totalStudents">0</h3>
+          <p>Total Students</p>
+        </div>
+      </div>
+     <div class="stat-card green">
+  <div class="stat-icon">📋</div>
+  <div class="stat-info">
+    <h3 id="pendingApps">0</h3>
+    <p>Pending Applications</p>
+  </div>
+</div>
+      <div class="stat-card orange">
+        <div class="stat-icon">🏛️</div>
+        <div class="stat-info">
+          <h3 id="totalClasses">0</h3>
+          <p>Total Classes</p>
+        </div>
+      </div>
+      <div class="stat-card purple">
+  <div class="stat-icon">✅</div>
+  <div class="stat-info">
+    <h3 id="approvedApps">0</h3>
+    <p>Approved Applications</p>
+  </div>
+</div>
+    </div>
+
+    <!-- Recent Students -->
+    <div class="recent-section">
+      <h3>Recent Students</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Admission No</th>
+            <th>Class</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="recentStudents">
+          <tr>
+            <td colspan="4" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/dashboard.js"></script>
+</body>
+</html>

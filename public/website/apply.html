@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Now - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="Apply online for admission at Sani Yahaya Memorial School, Kano. Fast, secure application with online payment.">
+  <meta name="keywords" content="apply school online Kano, SYMS application form, school registration Nigeria">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/apply.html">
+  <meta property="og:title" content="Apply Now - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="Apply online for admission at Sani Yahaya Memorial School, Kano. Fast, secure application with online payment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/apply.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Apply Now - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="Apply online for admission at Sani Yahaya Memorial School, Kano. Fast, secure application with online payment.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+    .apply-form {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .form-section {
+      margin-bottom: 35px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-section:last-child { border-bottom: none; margin-bottom: 0; }
+    .form-section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: span 2; }
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--primary); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+    .submit-btn:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .success-msg {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 20px;
+      display: none;
+    }
+    .error-msg {
+      background: #fdecea;
+      color: #c62828;
+      padding: 15px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      margin-top: 15px;
+      display: none;
+    }
+    .status-checker {
+      background: var(--off-white);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .status-badge.pending_payment { background: #fff3e0; color: #e65100; }
+    .status-badge.pending { background: #e3f2fd; color: #1565c0; }
+    .status-badge.approved { background: #e8f5e9; color: #2e7d32; }
+    .status-badge.rejected { background: #fdecea; color: #c62828; }
+    .photo-preview-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      object-fit: cover;
+      display: none;
+      margin-top: 10px;
+    }
+    .payment-box {
+      background: #f0f7ff;
+      border: 2px solid #1a73e8;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+    .payment-box h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .payment-box .amount {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a73e8;
+      margin: 15px 0;
+    }
+    .pay-btn {
+      padding: 14px 40px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .pay-btn:hover { background: #0d47a1; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Apply <span style="color:var(--gold)">Now</span></h1>
+    <p>Start your journey with us — Fill out the application form below</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>Apply Now</span>
+    </div>
+  </div>
+
+  <!-- APPLICATION FORM -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Tabs -->
+      <div style="display:flex; justify-content:center; gap:15px; margin-bottom:40px">
+        <button id="tab1" onclick="switchTab(1)" style="
+          padding:12px 30px; border-radius:30px;
+          border:2px solid var(--primary);
+          background:var(--primary); color:white;
+          font-size:15px; font-weight:700; cursor:pointer;">
+          📝 New Application
+        </button>
+        <button id="tab2" onclick="switchTab(2)" style="
+          padding:12px 30px; border-radius:30px;
+          border:2px solid var(--primary);
+          background:white; color:var(--primary);
+          font-size:15px; font-weight:700; cursor:pointer;">
+          🔍 Check Status
+        </button>
+      </div>
+
+      <!-- Application Form -->
+      <div id="applicationForm">
+        <div class="apply-form">
+
+          <!-- Student Information -->
+          <div class="form-section">
+            <div class="form-section-title"><span>👤</span> Student Information</div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Full Name *</label>
+                <input type="text" id="full_name" placeholder="Enter student's full name" />
+              </div>
+              <div class="form-group">
+                <label>Gender *</label>
+                <select id="gender">
+                  <option value="">-- Select --</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Date of Birth *</label>
+                <input type="date" id="date_of_birth" />
+              </div>
+              <div class="form-group">
+                <label>Applying For *</label>
+                <select id="applying_for">
+  <option value="">-- Select Class --</option>
+  <option value="Playgroup">Playgroup</option>
+  <option value="Nursery 1">Nursery 1</option>
+  <option value="Nursery 2">Nursery 2</option>
+  <option value="Nursery 3">Nursery 3</option>
+  <option value="Primary 1">Primary 1</option>
+  <option value="Primary 2">Primary 2</option>
+  <option value="Primary 3">Primary 3</option>
+  <option value="Primary 4">Primary 4</option>
+  <option value="Primary 5">Primary 5</option>
+  <option value="Primary 6">Primary 6</option>
+  <option value="JSS 1">JSS 1</option>
+  <option value="JSS 2">JSS 2</option>
+  <option value="JSS 3">JSS 3</option>
+  <option value="SSS 1">SSS 1</option>
+  <option value="SSS 2">SSS 2</option>
+  <option value="SSS 3">SSS 3</option>
+</select>
+              </div>
+              <div class="form-group">
+                <label>Previous School</label>
+                <input type="text" id="previous_school" placeholder="Previous school name (if any)" />
+              </div>
+              <div class="form-group">
+                <label>Passport Photo *</label>
+                <input type="file" id="passport_photo" accept="image/*" onchange="previewPhoto(this)" />
+                <img id="photoPreview" class="photo-preview-box" src="" alt="Preview" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Parent Information -->
+          <div class="form-section">
+            <div class="form-section-title"><span>👨‍👩‍👧</span> Parent/Guardian Information</div>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Parent/Guardian Name *</label>
+                <input type="text" id="parent_name" placeholder="Enter parent/guardian full name" />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="parent_phone" placeholder="e.g. 08012345678" />
+              </div>
+              <div class="form-group">
+                <label>Email Address * (Required for payment)</label>
+                <input type="email" id="parent_email" placeholder="Enter email address" />
+              </div>
+              <div class="form-group full">
+                <label>Home Address</label>
+                <textarea id="address" placeholder="Enter home address"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Declaration -->
+          <div class="form-section">
+            <div class="form-section-title"><span>📋</span> Declaration</div>
+            <div style="background:var(--off-white); padding:20px; border-radius:var(--radius); margin-bottom:20px">
+              <p style="font-size:14px; color:var(--text-light); line-height:1.8">
+                By submitting this application, I confirm that all information provided is accurate and complete.
+                I understand that false information may result in rejection of this application.
+                I agree to the school's terms and conditions.
+              </p>
+            </div>
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer; font-size:14px; font-weight:600">
+              <input type="checkbox" id="declaration" style="width:18px; height:18px" />
+              I agree to the above declaration
+            </label>
+          </div>
+
+          <button class="submit-btn" onclick="submitApplication()">
+            📤 Proceed to Payment
+          </button>
+
+          <!-- Payment Box -->
+          <div class="payment-box" id="paymentBox">
+            <div style="font-size:50px; margin-bottom:10px">💳</div>
+            <h3>Complete Your Application</h3>
+            <p style="color:#555; font-size:14px; margin-bottom:10px">
+              Pay the application fee to submit your application
+            </p>
+            <div class="amount">₦5,000</div>
+            <p style="font-size:13px; color:#888; margin-bottom:20px">
+              Application fee for <strong id="payStudentName">-</strong>
+            </p>
+            <button class="pay-btn" onclick="proceedToPayment()">
+              💳 Pay Now via Paystack
+            </button>
+            <p style="font-size:12px; color:#888; margin-top:15px">
+              🔒 Secure payment powered by Paystack
+            </p>
+          </div>
+
+          <div class="success-msg" id="successMsg"></div>
+          <div class="error-msg" id="errorMsg"></div>
+        </div>
+      </div>
+
+      <!-- Status Checker -->
+      <div id="statusChecker" style="display:none">
+        <div class="status-checker">
+          <h3 style="font-size:22px; font-weight:700; color:var(--primary); margin-bottom:10px">
+            🔍 Check Application Status
+          </h3>
+          <p style="color:var(--text-light); font-size:14px; margin-bottom:20px">
+            Enter the parent phone number used during application
+          </p>
+          <div style="display:flex; gap:10px">
+            <input type="tel" id="statusPhone" placeholder="Enter phone number" style="
+              flex:1; padding:12px 16px;
+              border:2px solid var(--border);
+              border-radius:var(--radius);
+              font-size:14px; outline:none;" />
+            <button onclick="checkStatus()" style="
+              padding:12px 20px;
+              background:var(--primary); color:white;
+              border:none; border-radius:var(--radius);
+              font-size:14px; font-weight:600; cursor:pointer;">
+              Check
+            </button>
+          </div>
+          <div id="statusResult" style="margin-top:20px; text-align:left"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+  <script>
+    let currentApplicationId = null;
+    let currentPaymentUrl = null;
+
+    // Check URL params for payment result
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const payment = params.get('payment');
+      const id = params.get('id');
+
+      if (payment === 'success' && id) {
+        showPaymentSuccess(id);
+      } else if (payment === 'failed') {
+        showPaymentFailed();
+      }
+    };
+
+    function showPaymentSuccess(id) {
+      const successMsg = document.getElementById('successMsg');
+      successMsg.innerHTML = `
+        ✅ Payment successful! Your application has been submitted.<br>
+        <small>Application ID: #${id}</small><br>
+        <p style="margin-top:12px; font-weight:600; color:#1a4d2e;">
+          Please wait 2 days, then come back and check your admission status using the "Check Status" tab above.
+        </p>
+        <div style="margin-top:15px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap">
+          <a href="/website/api/apply/receipt/${id}" target="_blank" style="
+            padding:10px 20px; background:#1a73e8; color:white;
+            border-radius:8px; text-decoration:none; font-weight:600; font-size:14px;">
+            🧾 Download Receipt
+          </a>
+          <a href="/portal/login" style="
+            padding:10px 20px; background:#2e7d32; color:white;
+            border-radius:8px; text-decoration:none; font-weight:600; font-size:14px;">
+            🎓 Go to Student Portal
+          </a>
+        </div>
+      `;
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showPaymentFailed() {
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.textContent = '❌ Payment failed or was cancelled. Please try again.';
+      errorMsg.style.display = 'block';
+    }
+
+    // Switch tabs
+    function switchTab(tab) {
+      const form = document.getElementById('applicationForm');
+      const checker = document.getElementById('statusChecker');
+      const tab1 = document.getElementById('tab1');
+      const tab2 = document.getElementById('tab2');
+      if (tab === 1) {
+        form.style.display = 'block';
+        checker.style.display = 'none';
+        tab1.style.background = 'var(--primary)';
+        tab1.style.color = 'white';
+        tab2.style.background = 'white';
+        tab2.style.color = 'var(--primary)';
+      } else {
+        form.style.display = 'none';
+        checker.style.display = 'block';
+        tab2.style.background = 'var(--primary)';
+        tab2.style.color = 'white';
+        tab1.style.background = 'white';
+        tab1.style.color = 'var(--primary)';
+      }
+    }
+
+    // Preview photo
+    function previewPhoto(input) {
+      const preview = document.getElementById('photoPreview');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    // Submit application — show payment box
+    async function submitApplication() {
+      const full_name = document.getElementById('full_name').value.trim();
+      const gender = document.getElementById('gender').value;
+      const date_of_birth = document.getElementById('date_of_birth').value;
+      const applying_for = document.getElementById('applying_for').value;
+      const parent_name = document.getElementById('parent_name').value.trim();
+      const parent_phone = document.getElementById('parent_phone').value.trim();
+      const parent_email = document.getElementById('parent_email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const previous_school = document.getElementById('previous_school').value.trim();
+      const passport_photo = document.getElementById('passport_photo').files[0];
+      const declaration = document.getElementById('declaration').checked;
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (!full_name || !gender || !date_of_birth || !applying_for || !parent_name || !parent_phone) {
+        errorMsg.textContent = '❌ Da fatan za a cika dukan required fields!';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      if (!parent_email) {
+        errorMsg.textContent = '❌ Email address required for payment!';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      if (!declaration) {
+        errorMsg.textContent = '❌ Da fatan za a yarda da declaration!';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      errorMsg.style.display = 'none';
+
+      const formData = new FormData();
+      formData.append('full_name', full_name);
+      formData.append('gender', gender);
+      formData.append('date_of_birth', date_of_birth);
+      formData.append('applying_for', applying_for);
+      formData.append('parent_name', parent_name);
+      formData.append('parent_phone', parent_phone);
+      formData.append('parent_email', parent_email);
+      formData.append('address', address);
+      formData.append('previous_school', previous_school);
+      if (passport_photo) {
+        formData.append('passport_photo', passport_photo);
+      }
+
+      const btn = document.querySelector('.submit-btn');
+      btn.textContent = '⏳ Processing...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/website/api/apply/submit-test', {
+  method: 'POST',
+  body: formData
+});
+const data = await response.json();
+
+if (data.success) {
+  document.getElementById('successMsg').innerHTML = `
+    ✅ Application submitted successfully! (Test mode - payment skipped)<br>
+    <small>Application ID: #${data.application_id}</small><br>
+    <small>Admin will review and approve your application soon.</small>
+    <p style="margin-top:12px; font-weight:600; color:#1a4d2e;">
+      Please wait 2 days, then come back and check your admission status using the "Check Status" tab above.
+    </p>
+  `;
+  document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+} else {
+  errorMsg.textContent = '❌ ' + data.message;
+  errorMsg.style.display = 'block';
+}
+      } catch (err) {
+        errorMsg.textContent = '❌ Network error! Please try again.';
+        errorMsg.style.display = 'block';
+      }
+
+      btn.textContent = '📤 Proceed to Payment';
+      btn.disabled = false;
+    }
+
+    // Go to Paystack payment
+    function proceedToPayment() {
+      if (currentPaymentUrl) {
+        window.location.href = currentPaymentUrl;
+      }
+    }
+
+    // Check status
+    async function checkStatus() {
+      const phone = document.getElementById('statusPhone').value.trim();
+      const result = document.getElementById('statusResult');
+
+      if (!phone) {
+        result.innerHTML = '<p style="color:red; text-align:center">Da fatan za a saka phone number!</p>';
+        return;
+      }
+
+      result.innerHTML = '<p style="text-align:center; color:var(--text-light)">Checking...</p>';
+
+      const response = await fetch(`/website/api/apply/status?phone=${phone}`);
+      const data = await response.json();
+
+      if (!data.success) {
+        result.innerHTML = `<p style="color:red; text-align:center">${data.message}</p>`;
+        return;
+      }
+
+      result.innerHTML = data.data.map(app => `
+        <div style="background:white; padding:20px; border-radius:12px; margin-top:15px; box-shadow:0 2px 10px rgba(0,0,0,0.08)">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+            <h4 style="font-size:16px; font-weight:700; color:#0a1628">${app.full_name}</h4>
+            <span class="status-badge ${app.status}">${app.status.replace('_', ' ').toUpperCase()}</span>
+          </div>
+          <p style="font-size:13px; color:#718096; margin-bottom:5px">
+            Applying for: <strong>${app.applying_for}</strong>
+          </p>
+          <p style="font-size:13px; color:#718096; margin-bottom:5px">
+            Payment: <strong style="color:${app.payment_status === 'paid' ? '#2e7d32' : '#e65100'}">${app.payment_status.toUpperCase()}</strong>
+          </p>
+          <p style="font-size:13px; color:#718096">
+            Submitted: <strong>${new Date(app.created_at).toLocaleDateString()}</strong>
+          </p>
+          ${app.status === 'approved' ? `
+            <div style="margin-top:15px; padding:12px; background:#e8f5e9; border-radius:8px; font-size:13px; color:#2e7d32">
+              ✅ Approved! Login to Student Portal to download your Admission Letter.
+              <br><br>
+              <a href="/portal/login" style="
+                display:inline-block; padding:8px 20px;
+                background:#2e7d32; color:white;
+                border-radius:8px; text-decoration:none;
+                font-weight:600; font-size:13px; margin-top:5px;">
+                🎓 Go to Portal →
+              </a>
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

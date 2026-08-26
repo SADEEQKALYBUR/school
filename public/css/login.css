@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0a1628, #1a2f4e);  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.school-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.school-logo h1 {
+  font-size: 50px;
+}
+
+.school-logo h2 {
+  font-size: 20px;
+  color: #1a73e8;
+  margin-top: 8px;
+}
+
+.school-logo p {
+  color: #888;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #1a73e8;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  background: #c9a84c;
+  color: #0a1628;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #0d47a1;
+}
+
+.error-msg {
+  background: #fdecea;
+  color: #c62828;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}

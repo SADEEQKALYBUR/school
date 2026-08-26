@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachers Management</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+      <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+      <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+      <a href="/admin/teachers" class="nav-item active">👨‍🏫 Teachers</a>
+      <a href="/admin/results" class="nav-item">📝 Results</a>
+      <a href="/admin/fees" class="nav-item">💰 Fees</a>
+      <a href="/admin/applications" class="nav-item">📋 Applications</a>
+      <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+      <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Teachers Management</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Add Teacher Form -->
+<!-- Add Teacher Form -->
+<div class="form-card">
+  <h3>➕ Register New Teacher</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Passport Photo</label>
+      <input type="file" id="photo" accept="image/*" onchange="previewTeacherPhoto(this)" />
+      <img id="teacherPhotoPreview" src="" alt="Preview"
+        style="width:80px; height:80px; border-radius:50%;
+               object-fit:cover; display:none; margin-top:8px;
+               border:2px solid #1a73e8" />
+    </div>
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="full_name" placeholder="Enter teacher's full name" />
+    </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="Enter email address" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Set login password" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="e.g. 08012345678" />
+        </div>
+        <div class="form-group">
+          <label>Assign Class</label>
+          <select id="class_id">
+            <option value="">-- Select Class --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Assign Subject</label>
+          <select id="subject_id">
+            <option value="">-- Select Subject --</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button onclick="addTeacher()" class="btn-add">
+            👨‍🏫 Register Teacher
+          </button>
+        </div>
+      </div>
+      <div id="teacher-msg" class="form-msg"></div>
+    </div>
+
+    <!-- Teachers Table -->
+    <div class="recent-section">
+      <h3>All Teachers</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Class</th>
+            <th>Subject</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="teachersTable">
+          <tr>
+            <td colspan="6" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/teachers.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="/css/portal.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="portal-header">
+    <div class="header-left">
+      <h1>🎓 Student Portal</h1>
+    </div>
+    <div class="header-right">
+      <span id="studentName">Loading...</span>
+      <a href="/auth/parent-logout" class="logout-btn">🚪 Logout</a>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="portal-container">
+
+    <!-- Student Info Card -->
+    <div class="info-card">
+      <div class="info-avatar">
+        <img id="infoPhoto" src="" alt="Photo"
+          style="width:70px; height:70px; border-radius:50%;
+                 object-fit:cover; display:none;" />
+        <span id="infoEmoji">👨‍🎓</span>
+      </div>
+      <div class="info-details">
+        <h2 id="infoName">-</h2>
+        <p>Admission No: <strong id="infoAdmission">-</strong></p>
+        <p>Class: <strong id="infoClass">-</strong></p>
+        <p>Serial No: <strong id="infoSerial">-</strong></p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('results', this)">
+        📝 Results
+      </button>
+      <button class="tab-btn" onclick="showTab('idcard', this)">
+        🪪 ID Card
+      </button>
+      <button class="tab-btn" onclick="showTab('admission', this)">
+        📄 Admission Letter
+      </button>
+    </div>
+
+    <!-- Results Tab -->
+    <div id="resultsTab" class="tab-content">
+      <div class="section-header">
+        <h3>My Results</h3>
+        <button onclick="window.print()" class="print-btn">🖨️ Print</button>
+      </div>
+      <table class="portal-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Subject</th>
+            <th>CA</th>
+            <th>Exam</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>Session</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody">
+          <tr>
+            <td colspan="7" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ID Card Tab -->
+    <div id="idcardTab" class="tab-content hidden">
+      <div class="section-header">
+        <h3>My ID Card</h3>
+        <button onclick="window.print()" class="print-btn">🖨️ Print</button>
+      </div>
+
+      <div id="portalIdCard" style="
+        width:320px; margin:0 auto;
+        background: linear-gradient(135deg, #1a73e8, #0d47a1);
+        border-radius:16px; padding:20px; color:white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      ">
+        <div style="text-align:center; border-bottom:1px solid rgba(255,255,255,0.3);
+          padding-bottom:15px; margin-bottom:15px">
+          <div style="font-size:30px">🏫</div>
+          <h2 style="font-size:16px; font-weight:700; margin-top:5px">
+            SCHOOL MANAGEMENT SYSTEM
+          </h2>
+          <p style="font-size:11px; opacity:0.8; margin-top:3px">
+            Student Identity Card
+          </p>
+        </div>
+
+        <div style="display:flex; gap:15px; align-items:center">
+          <div style="
+            width:80px; height:80px; border-radius:50%;
+            background:rgba(255,255,255,0.2);
+            display:flex; align-items:center;
+            justify-content:center; font-size:40px;
+            flex-shrink:0; border:3px solid white;
+            overflow:hidden;
+          ">
+            <img id="portalCardPhoto" src="" alt="Photo"
+              style="width:80px; height:80px; object-fit:cover; display:none;" />
+            <span id="portalCardEmoji">👨‍🎓</span>
+          </div>
+
+          <div>
+            <h3 id="portalCardName" style="font-size:15px; font-weight:700; margin-bottom:6px">-</h3>
+            <p style="font-size:11px; opacity:0.85; margin-bottom:3px">
+              Class: <strong id="portalCardClass">-</strong>
+            </p>
+            <p style="font-size:11px; opacity:0.85; margin-bottom:3px">
+              Gender: <strong id="portalCardGender">-</strong>
+            </p>
+            <p style="font-size:11px; opacity:0.85">
+              Session: <strong>2025/2026</strong>
+            </p>
+          </div>
+        </div>
+
+        <div style="
+          margin-top:15px; padding-top:15px;
+          border-top:1px solid rgba(255,255,255,0.3);
+          display:flex; justify-content:space-between; align-items:center;
+        ">
+          <div style="font-size:12px; opacity:0.9">
+            Adm: <strong id="portalCardAdmission">-</strong>
+          </div>
+          <div style="
+            font-size:11px; background:rgba(255,255,255,0.2);
+            padding:4px 10px; border-radius:10px;
+          " id="portalCardSerial">-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admission Letter Tab -->
+    <div id="admissionTab" class="tab-content hidden">
+      <div class="section-header">
+        <h3>My Admission Letter</h3>
+        <button onclick="printAdmission()" class="print-btn" id="printAdmBtn" style="display:none">
+          🖨️ Print
+        </button>
+      </div>
+
+      <div id="admissionContent">
+        <div style="text-align:center; padding:40px; color:#888">
+          Loading...
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/portal/dashboard.js"></script>
+</body>
+</html>

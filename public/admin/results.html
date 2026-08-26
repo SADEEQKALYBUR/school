@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Results</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h1>🏫</h1>
+      <h2>School MS</h2>
+    </div>
+  <nav class="sidebar-nav">
+  <a href="/admin/dashboard" class="nav-item">📊 Dashboard</a>
+  <a href="/admin/classes" class="nav-item">🏛️ Classes</a>
+  <a href="/admin/subjects" class="nav-item">📚 Subjects</a>
+  <a href="/admin/teachers" class="nav-item">👨‍🏫 Teachers</a>
+  <a href="/admin/results" class="nav-item active">📝 Results</a>
+  <a href="/admin/fees" class="nav-item">💰 Fees</a>
+  <a href="/admin/applications" class="nav-item">📋 Applications</a>
+  <a href="/admin/idcard" class="nav-item">🪪 ID Cards</a>
+  <a href="/auth/logout" class="nav-item logout">🚪 Logout</a>
+</nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Result Management</h2>
+      <div class="admin-info">
+        <span>👤 Super Admin</span>
+      </div>
+    </div>
+
+    <!-- Session Card -->
+    <div class="form-card">
+      <h3>Add Session</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Session Name</label>
+          <input type="text" id="session_name" placeholder="e.g. 2025/2026" />
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button onclick="addSession()" class="btn-add">+ Add Session</button>
+        </div>
+      </div>
+      <div id="session-msg" class="form-msg hidden"></div>
+    </div>
+
+    <!-- Add Result Form -->
+    <div class="form-card">
+      <h3>Enter Student Result</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Session</label>
+          <select id="session_id">
+            <option value="">-- Select Session --</option>
+          </select>
+        </div>
+        <div class="form-group">
+  <label>Term</label>
+  <select id="term">
+    <option value="">-- Select Term --</option>
+    <option value="First Term">First Term</option>
+    <option value="Second Term">Second Term</option>
+    <option value="Third Term">Third Term</option>
+  </select>
+</div>
+        <div class="form-group">
+          <label>Class</label>
+          <select id="class_id" onchange="loadStudentsByClass()">
+            <option value="">-- Select Class --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Student</label>
+          <select id="student_id">
+            <option value="">-- Select Student --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="subject_id">
+            <option value="">-- Select Subject --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:15px">
+        <div class="form-group">
+          <label>CA Score (40)</label>
+          <input type="number" id="ca_score" placeholder="0 - 40" min="0" max="40" />
+        </div>
+
+        <div class="form-group">
+          <label>Exam Score (60)</label>
+          <input type="number" id="exam_score" placeholder="0 - 60" min="0" max="60" />
+        </div>
+
+        <div class="form-group">
+          <label>Total (Auto)</label>
+          <input type="number" id="total_score" placeholder="Total" readonly 
+            style="background:#f5f5f5" />
+        </div>
+
+        <div class="form-group">
+          <label>Grade (Auto)</label>
+          <input type="text" id="grade" placeholder="Grade" readonly 
+            style="background:#f5f5f5" />
+        </div>
+      </div>
+
+      <div style="margin-top:15px">
+        <button onclick="saveResult()" class="btn-add">💾 Save Result</button>
+      </div>
+
+      <div id="result-msg" class="form-msg hidden"></div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="recent-section">
+      <h3>All Results</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Student</th>
+            <th>Subject</th>
+            <th>CA</th>
+            <th>Exam</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>Session</th>
+          </tr>
+        </thead>
+        <tbody id="resultsTable">
+          <tr>
+            <td colspan="8" style="text-align:center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="/js/admin/results.js"></script>
+</body>
+</html>

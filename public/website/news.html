@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Events - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="Stay updated with the latest news, events, and announcements from Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS news, school events Kano, school announcements">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/news.html">
+  <meta property="og:title" content="News & Events - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="Stay updated with the latest news, events, and announcements from Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/news.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="News & Events - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="Stay updated with the latest news, events, and announcements from Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .news-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .news-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .news-img {
+      width: 100%;
+      height: 200px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+      position: relative;
+    }
+    .news-category {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .news-body { padding: 25px; }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .news-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .news-body p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    .read-more {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+    .read-more:hover { gap: 10px; }
+
+    .event-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 25px;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      transition: var(--transition);
+      border-left: 4px solid var(--gold);
+    }
+    .event-card:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .event-date {
+      background: var(--primary);
+      color: white;
+      padding: 15px;
+      border-radius: var(--radius);
+      text-align: center;
+      min-width: 65px;
+      flex-shrink: 0;
+    }
+    .event-date .day {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .event-date .month {
+      font-size: 12px;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+    .event-info h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .event-info p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .event-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .event-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>News & <span style="color:var(--gold)">Events</span></h1>
+    <p>Stay updated with the latest news and upcoming events</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>News & Events</span>
+    </div>
+  </div>
+
+  <!-- LATEST NEWS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Latest News</div>
+        <h2>School <span>News</span></h2>
+        <p>Stay informed with the latest happenings in our school</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="news-card">
+          <div class="news-img">
+            🏆
+            <span class="news-category">Achievement</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 May 15, 2026</div>
+            <h3>Students Excel in State Mathematics Competition</h3>
+            <p>Our students brought home gold medals from the Kano State Mathematics Olympiad, with three students placing in the top five.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            🎓
+            <span class="news-category">Academic</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 May 10, 2026</div>
+            <h3>100% Pass Rate in WAEC 2025 Examinations</h3>
+            <p>We are proud to announce that all our SS3 students passed the 2025 WAEC examinations with excellent grades.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            🏫
+            <span class="news-category">School News</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 May 5, 2026</div>
+            <h3>New Computer Laboratory Officially Opened</h3>
+            <p>The school recently commissioned a new state-of-the-art computer laboratory equipped with the latest technology.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            ⚽
+            <span class="news-category">Sports</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 April 28, 2026</div>
+            <h3>School Football Team Wins Regional Championship</h3>
+            <p>Our school football team defeated rivals to win the Regional Secondary Schools Football Championship.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            🌱
+            <span class="news-category">Community</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 April 20, 2026</div>
+            <h3>Students Lead Tree Planting Initiative</h3>
+            <p>Over 200 trees were planted around the school and community as part of our environmental awareness campaign.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            📚
+            <span class="news-category">Academic</span>
+          </div>
+          <div class="news-body">
+            <div class="news-date">📅 April 15, 2026</div>
+            <h3>Annual Science Fair 2026 — Call for Projects</h3>
+            <p>Students are invited to submit their science project proposals for the upcoming Annual Science Fair 2026.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Upcoming Events</div>
+        <h2>Events <span>Calendar</span></h2>
+        <p>Don't miss these important upcoming events</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px">
+        <div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">15</div>
+              <div class="month">Jun</div>
+            </div>
+            <div class="event-info">
+              <h3>End of Term Examination</h3>
+              <p>Second term examinations for all classes begin. Students should prepare adequately.</p>
+              <div class="event-meta">
+                <span>📍 All Classrooms</span>
+                <span>⏰ 8:00 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">22</div>
+              <div class="month">Jun</div>
+            </div>
+            <div class="event-info">
+              <h3>Annual Sports Day</h3>
+              <p>Inter-house sports competition featuring athletics, football, and other sporting activities.</p>
+              <div class="event-meta">
+                <span>📍 School Field</span>
+                <span>⏰ 9:00 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">30</div>
+              <div class="month">Jun</div>
+            </div>
+            <div class="event-info">
+              <h3>Parent-Teacher Meeting</h3>
+              <p>Mandatory meeting for all parents to discuss student progress and school development.</p>
+              <div class="event-meta">
+                <span>📍 School Hall</span>
+                <span>⏰ 10:00 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">5</div>
+              <div class="month">Jul</div>
+            </div>
+            <div class="event-info">
+              <h3>Graduation Ceremony 2026</h3>
+              <p>Celebrating our graduating SS3 students. Parents and guardians are warmly invited.</p>
+              <div class="event-meta">
+                <span>📍 School Auditorium</span>
+                <span>⏰ 11:00 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">15</div>
+              <div class="month">Jul</div>
+            </div>
+            <div class="event-info">
+              <h3>Long Vacation Begins</h3>
+              <p>Second term ends and long vacation begins. Students return September 1, 2026.</p>
+              <div class="event-meta">
+                <span>📍 School Wide</span>
+                <span>⏰ All Day</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-date">
+              <div class="day">1</div>
+              <div class="month">Sep</div>
+            </div>
+            <div class="event-info">
+              <h3>New Academic Session 2026/2027</h3>
+              <p>New academic session begins. All students and new admissions report to school.</p>
+              <div class="event-meta">
+                <span>📍 School Wide</span>
+                <span>⏰ 7:30 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section style="background:var(--primary); padding:80px 0">
+    <div class="container" style="text-align:center">
+      <h2 style="font-size:38px; font-weight:800; color:var(--white); margin-bottom:15px">
+        Stay <span style="color:var(--gold)">Updated</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:16px; margin-bottom:35px; max-width:500px; margin-left:auto; margin-right:auto">
+        Subscribe to our newsletter to receive the latest news and event updates directly to your inbox.
+      </p>
+      <div style="display:flex; gap:10px; justify-content:center; max-width:500px; margin:0 auto">
+        <input type="email" placeholder="Enter your email address" style="
+          flex:1; padding:14px 20px;
+          border:none; border-radius:30px;
+          font-size:15px; outline:none;
+        " />
+        <button class="btn-primary" style="white-space:nowrap">
+          Subscribe →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+</body>
+</html>

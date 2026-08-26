@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="View photos of school activities, facilities, and events at Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS gallery, school photos Kano, school events pictures">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/gallery.html">
+  <meta property="og:title" content="Gallery - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="View photos of school activities, facilities, and events at Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/gallery.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gallery - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="View photos of school activities, facilities, and events at Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      border: 2px solid var(--border);
+      background: white;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text-dark);
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(10,22,40,0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .gallery-overlay h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .gallery-overlay p {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      color: white;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .lightbox-img {
+      font-size: 150px;
+      margin-bottom: 20px;
+    }
+
+    .lightbox-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .lightbox-desc {
+      font-size: 15px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>Our <span style="color:var(--gold)">Gallery</span></h1>
+    <p>Moments and memories from our school community</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>Gallery</span>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+        <button class="filter-btn" onclick="filterGallery('events', this)">Events</button>
+        <button class="filter-btn" onclick="filterGallery('sports', this)">Sports</button>
+        <button class="filter-btn" onclick="filterGallery('academics', this)">Academics</button>
+        <button class="filter-btn" onclick="filterGallery('graduation', this)">Graduation</button>
+        <button class="filter-btn" onclick="filterGallery('facilities', this)">Facilities</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gallery-item large" data-category="events" onclick="openLightbox('🎉', 'Annual School Day', 'Our annual school day celebration with students, teachers and parents.')">
+          <span>🎉</span>
+          <div class="gallery-overlay">
+            <h4>Annual School Day</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="sports" onclick="openLightbox('⚽', 'Inter-House Sports', 'Students competing in the annual inter-house sports competition.')">
+          <span>⚽</span>
+          <div class="gallery-overlay">
+            <h4>Inter-House Sports</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academics" onclick="openLightbox('📚', 'Science Fair', 'Students showcasing their science projects at the annual science fair.')">
+          <span>📚</span>
+          <div class="gallery-overlay">
+            <h4>Science Fair</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="graduation" onclick="openLightbox('🎓', 'Graduation Ceremony', 'Celebrating our graduating class with pride and joy.')">
+          <span>🎓</span>
+          <div class="gallery-overlay">
+            <h4>Graduation Ceremony</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item large" data-category="facilities" onclick="openLightbox('🏫', 'School Building', 'Our modern school building with state-of-the-art facilities.')">
+          <span>🏫</span>
+          <div class="gallery-overlay">
+            <h4>School Building</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="sports" onclick="openLightbox('🏆', 'Trophy Presentation', 'Proud winners receiving their trophies at the awards ceremony.')">
+          <span>🏆</span>
+          <div class="gallery-overlay">
+            <h4>Trophy Presentation</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academics" onclick="openLightbox('💻', 'Computer Lab', 'Students learning modern technology in our computer laboratory.')">
+          <span>💻</span>
+          <div class="gallery-overlay">
+            <h4>Computer Lab</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events" onclick="openLightbox('🎭', 'Cultural Day', 'Celebrating our rich cultural heritage on cultural day.')">
+          <span>🎭</span>
+          <div class="gallery-overlay">
+            <h4>Cultural Day</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item large" data-category="graduation" onclick="openLightbox('👨‍🎓', 'Class of 2025', 'The proud graduating class of 2025.')">
+          <span>👨‍🎓</span>
+          <div class="gallery-overlay">
+            <h4>Class of 2025</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="facilities" onclick="openLightbox('📖', 'Library', 'Our well-stocked school library with thousands of books.')">
+          <span>📖</span>
+          <div class="gallery-overlay">
+            <h4>Library</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="sports" onclick="openLightbox('🏋️', 'Sports Day', 'Students participating in athletics on sports day.')">
+          <span>🏋️</span>
+          <div class="gallery-overlay">
+            <h4>Sports Day</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="academics" onclick="openLightbox('🔬', 'Science Lab', 'Hands-on learning in our modern science laboratory.')">
+          <span>🔬</span>
+          <div class="gallery-overlay">
+            <h4>Science Lab</h4>
+            <p>Click to view</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <div class="lightbox-content">
+      <div class="lightbox-img" id="lightboxImg"></div>
+      <div class="lightbox-title" id="lightboxTitle"></div>
+      <div class="lightbox-desc" id="lightboxDesc"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section style="background:var(--primary); padding:80px 0">
+    <div class="container" style="text-align:center">
+      <h2 style="font-size:42px; font-weight:800; color:var(--white); margin-bottom:15px">
+        Be Part of Our <span style="color:var(--gold)">Story</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:16px; margin-bottom:35px">
+        Join our school community and create lasting memories
+      </p>
+      <a href="/website/apply.html" class="btn-primary">Apply Now →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+  <script>
+    // Filter gallery
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Open lightbox
+    function openLightbox(img, title, desc) {
+      document.getElementById('lightboxImg').textContent = img;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDesc').textContent = desc;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

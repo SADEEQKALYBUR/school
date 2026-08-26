@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - Sani Yahaya Memorial School, Kano</title>
+  <meta name="description" content="Explore the library facilities and resources available to students at Sani Yahaya Memorial School, Kano.">
+  <meta name="keywords" content="SYMS library, school library Kano, student resources">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://your-domain-here.com/website/library.html">
+  <meta property="og:title" content="Library - Sani Yahaya Memorial School, Kano">
+  <meta property="og:description" content="Explore the library facilities and resources available to students at Sani Yahaya Memorial School, Kano.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain-here.com/website/library.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Library - Sani Yahaya Memorial School, Kano">
+  <meta name="twitter:description" content="Explore the library facilities and resources available to students at Sani Yahaya Memorial School, Kano.">
+  <link rel="stylesheet" href="/css/website.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 150px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+    .breadcrumb {
+      display: flex; justify-content: center;
+      gap: 10px; margin-top: 15px;
+      font-size: 14px; opacity: 0.7;
+    }
+    .breadcrumb a { color: var(--gold); }
+
+    .book-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .book-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .book-cover {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+    }
+    .book-info { padding: 20px; }
+    .book-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    .book-info .author {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .book-info .category {
+      display: inline-block;
+      background: var(--off-white);
+      color: var(--primary);
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .book-info .available {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      float: right;
+    }
+    .available.yes { background: #e8f5e9; color: #2e7d32; }
+    .available.no { background: #fdecea; color: #c62828; }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 14px 20px;
+      border: 2px solid var(--border);
+      border-radius: 30px;
+      font-size: 15px;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-bar input:focus {
+      border-color: var(--primary);
+    }
+    .search-bar button {
+      padding: 14px 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      border: 2px solid var(--border);
+      background: white;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .rule-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 20px;
+      background: white;
+      border-radius: var(--radius);
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+    }
+    .rule-num {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .rule-item h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    .rule-item p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🏫</div>
+        <div class="nav-logo-text">
+          <h2>Sani Yahaya Memorial</h2>
+          <span>Excellence in Education</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/website/about.html">About Us</a></li>
+        <li><a href="/website/admission.html">Admission</a></li>
+        <li><a href="/website/programs.html">Programs</a></li>
+        <li><a href="/website/teachers.html">Teachers</a></li>
+        <li><a href="/website/gallery.html">Gallery</a></li>
+        <li><a href="/website/news.html">News</a></li>
+        <li><a href="/website/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/portal/login" class="btn-portal">Student Portal</a>
+        <a href="/auth/login" class="btn-admin">Admin Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>School <span style="color:var(--gold)">Library</span></h1>
+    <p>Explore our collection of books and learning resources</p>
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>→</span>
+      <span>Library</span>
+    </div>
+  </div>
+
+  <!-- LIBRARY STATS -->
+  <section style="background:var(--primary); padding:50px 0">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center">
+        <div>
+          <h3 style="font-size:42px; font-weight:800; color:var(--gold)">5,000+</h3>
+          <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-top:5px">Total Books</p>
+        </div>
+        <div>
+          <h3 style="font-size:42px; font-weight:800; color:var(--gold)">20+</h3>
+          <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-top:5px">Categories</p>
+        </div>
+        <div>
+          <h3 style="font-size:42px; font-weight:800; color:var(--gold)">500+</h3>
+          <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-top:5px">Digital Resources</p>
+        </div>
+        <div>
+          <h3 style="font-size:42px; font-weight:800; color:var(--gold)">7</h3>
+          <p style="color:rgba(255,255,255,0.8); font-size:14px; margin-top:5px">Days Open</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK CATALOG -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Book Catalog</div>
+        <h2>Featured <span>Books</span></h2>
+        <p>Browse our collection of academic and recreational books</p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search books by title or author..." onkeyup="searchBooks()" />
+        <button onclick="searchBooks()">🔍 Search</button>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterBooks('all', this)">All</button>
+        <button class="filter-btn" onclick="filterBooks('Mathematics', this)">Mathematics</button>
+        <button class="filter-btn" onclick="filterBooks('Science', this)">Science</button>
+        <button class="filter-btn" onclick="filterBooks('English', this)">English</button>
+        <button class="filter-btn" onclick="filterBooks('History', this)">History</button>
+        <button class="filter-btn" onclick="filterBooks('Fiction', this)">Fiction</button>
+        <button class="filter-btn" onclick="filterBooks('Islamic', this)">Islamic</button>
+      </div>
+
+      <!-- Books Grid -->
+      <div id="booksGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:25px">
+
+        <div class="book-card" data-category="Mathematics" data-title="Mathematics for Secondary Schools">
+          <div class="book-cover" style="background:linear-gradient(135deg,#0a1628,#1a2f4e)">📐</div>
+          <div class="book-info">
+            <h3>Mathematics for SS</h3>
+            <div class="author">by Macmillan Publishers</div>
+            <span class="category">Mathematics</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Science" data-title="Integrated Science">
+          <div class="book-cover" style="background:linear-gradient(135deg,#1a3a1a,#2e7d32)">🔬</div>
+          <div class="book-info">
+            <h3>Integrated Science</h3>
+            <div class="author">by Evans Brothers</div>
+            <span class="category">Science</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="English" data-title="Effective English">
+          <div class="book-cover" style="background:linear-gradient(135deg,#1a1a3a,#1565c0)">📝</div>
+          <div class="book-info">
+            <h3>Effective English</h3>
+            <div class="author">by Longman</div>
+            <span class="category">English</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="History" data-title="History of West Africa">
+          <div class="book-cover" style="background:linear-gradient(135deg,#3a1a00,#e65100)">🌍</div>
+          <div class="book-info">
+            <h3>History of West Africa</h3>
+            <div class="author">by J.F. Ade Ajayi</div>
+            <span class="category">History</span>
+            <span class="available no">Borrowed</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Islamic" data-title="Islamic Studies">
+          <div class="book-cover" style="background:linear-gradient(135deg,#1a3a2a,#388e3c)">☪️</div>
+          <div class="book-info">
+            <h3>Islamic Studies</h3>
+            <div class="author">by NERDC</div>
+            <span class="category">Islamic</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Fiction" data-title="Things Fall Apart">
+          <div class="book-cover" style="background:linear-gradient(135deg,#3a2a00,#f57f17)">📖</div>
+          <div class="book-info">
+            <h3>Things Fall Apart</h3>
+            <div class="author">by Chinua Achebe</div>
+            <span class="category">Fiction</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Science" data-title="Chemistry for Senior Secondary">
+          <div class="book-cover" style="background:linear-gradient(135deg,#2a003a,#6a1b9a)">⚗️</div>
+          <div class="book-info">
+            <h3>Chemistry SSS</h3>
+            <div class="author">by Heinemann</div>
+            <span class="category">Science</span>
+            <span class="available yes">Available</span>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Mathematics" data-title="Further Mathematics">
+          <div class="book-cover" style="background:linear-gradient(135deg,#003a3a,#00695c)">➗</div>
+          <div class="book-info">
+            <h3>Further Mathematics</h3>
+            <div class="author">by Macmillan</div>
+            <span class="category">Mathematics</span>
+            <span class="available no">Borrowed</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY RULES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start">
+        <div>
+          <div class="section-tag">Library Rules</div>
+          <h2 style="font-size:34px; font-weight:800; color:var(--primary); margin-bottom:30px; line-height:1.2">
+            Library <span style="color:var(--gold)">Rules & Hours</span>
+          </h2>
+
+          <div class="rule-item">
+            <div class="rule-num">1</div>
+            <div>
+              <h4>Maintain Silence</h4>
+              <p>The library is a quiet zone. Students must maintain silence at all times to ensure a conducive learning environment.</p>
+            </div>
+          </div>
+
+          <div class="rule-item">
+            <div class="rule-num">2</div>
+            <div>
+              <h4>Handle Books Carefully</h4>
+              <p>Books must be handled with care. No writing, tearing, or defacing of library materials is allowed.</p>
+            </div>
+          </div>
+
+          <div class="rule-item">
+            <div class="rule-num">3</div>
+            <div>
+              <h4>Return Books on Time</h4>
+              <p>Borrowed books must be returned within 2 weeks. Late returns will attract a fine of ₦50 per day.</p>
+            </div>
+          </div>
+
+          <div class="rule-item">
+            <div class="rule-num">4</div>
+            <div>
+              <h4>No Food or Drinks</h4>
+              <p>Eating and drinking are strictly prohibited inside the library to protect the books and materials.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-tag">Opening Hours</div>
+          <h2 style="font-size:34px; font-weight:800; color:var(--primary); margin-bottom:30px; line-height:1.2">
+            Library <span style="color:var(--gold)">Schedule</span>
+          </h2>
+
+          <div style="background:white; border-radius:var(--radius-lg); padding:30px; box-shadow:var(--shadow)">
+            <div style="display:flex; flex-direction:column; gap:15px">
+              <div style="display:flex; justify-content:space-between; padding-bottom:15px; border-bottom:1px solid var(--border)">
+                <span style="font-weight:600; color:var(--primary)">Monday - Friday</span>
+                <span style="color:var(--gold); font-weight:700">7:30 AM - 5:00 PM</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding-bottom:15px; border-bottom:1px solid var(--border)">
+                <span style="font-weight:600; color:var(--primary)">Saturday</span>
+                <span style="color:var(--gold); font-weight:700">8:00 AM - 2:00 PM</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding-bottom:15px; border-bottom:1px solid var(--border)">
+                <span style="font-weight:600; color:var(--primary)">Sunday</span>
+                <span style="color:#e53935; font-weight:700">Closed</span>
+              </div>
+              <div style="display:flex; justify-content:space-between">
+                <span style="font-weight:600; color:var(--primary)">Public Holidays</span>
+                <span style="color:#e53935; font-weight:700">Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--primary); border-radius:var(--radius-lg); padding:25px; margin-top:20px; color:white">
+            <h3 style="color:var(--gold); margin-bottom:15px; font-size:17px">📋 Borrowing Policy</h3>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px">
+              <li style="font-size:14px; opacity:0.9">✅ Maximum 2 books per student</li>
+              <li style="font-size:14px; opacity:0.9">✅ Borrowing period: 2 weeks</li>
+              <li style="font-size:14px; opacity:0.9">✅ Renewable once if not reserved</li>
+              <li style="font-size:14px; opacity:0.9">✅ Student ID required for borrowing</li>
+              <li style="font-size:14px; opacity:0.9">⚠️ Late fine: ₦50 per day</li>
+              <li style="font-size:14px; opacity:0.9">⚠️ Lost book: Full replacement cost</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--primary); padding:80px 0">
+    <div class="container" style="text-align:center">
+      <h2 style="font-size:38px; font-weight:800; color:var(--white); margin-bottom:15px">
+        Visit Our <span style="color:var(--gold)">Library</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.8); font-size:16px; margin-bottom:35px">
+        Come explore thousands of books and learning resources
+      </p>
+      <a href="/website/contact.html" class="btn-primary">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>🏫 Sani Yahaya Memorial School</h2>
+          <p>Providing quality education and nurturing future leaders since 2009.</p>
+          <div class="footer-social">
+            <div class="social-btn">📘</div>
+            <div class="social-btn">📸</div>
+            <div class="social-btn">🐦</div>
+            <div class="social-btn">▶️</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/website/about.html">About Us</a></li>
+            <li><a href="/website/admission.html">Admission</a></li>
+            <li><a href="/website/programs.html">Programs</a></li>
+            <li><a href="/website/teachers.html">Teachers</a></li>
+            <li><a href="/website/gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Student</h3>
+          <ul>
+            <li><a href="/portal/login">Student Portal</a></li>
+            <li><a href="/website/result-checker.html">Result Checker</a></li>
+            <li><a href="/website/library.html">Library</a></li>
+            <li><a href="/website/news.html">News & Events</a></li>
+            <li><a href="/website/faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><a href="#">📍 Kano, Nigeria</a></li>
+            <li><a href="#">📞 +234 800 000 0000</a></li>
+            <li><a href="#">✉️ info@syms.edu.ng</a></li>
+            <li><a href="#">🌐 www.syms.edu.ng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sani Yahaya Memorial School. All rights reserved.</p>
+        <p>Designed with ❤️ for Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/website.js"></script>
+  <script>
+    // Filter books
+    function filterBooks(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const books = document.querySelectorAll('.book-card');
+      books.forEach(book => {
+        if (category === 'all' || book.dataset.category === category) {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+
+    // Search books
+    function searchBooks() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const books = document.querySelectorAll('.book-card');
+
+      books.forEach(book => {
+        const title = book.dataset.title.toLowerCase();
+        const category = book.dataset.category.toLowerCase();
+        if (title.includes(query) || category.includes(query)) {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

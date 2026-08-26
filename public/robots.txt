@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /website/
+Disallow: /admin/
+Disallow: /portal/
+Disallow: /uploads/
+
+Sitemap: https://your-domain-here.com/sitemap.xml
