@@ -130,6 +130,10 @@ img {
   gap: 10px;
 }
 
+.nav-mobile-only {
+  display: none;
+}
+
 .btn-portal {
   padding: 8px 18px;
   background: transparent;
@@ -162,6 +166,39 @@ img {
 .btn-admin:hover {
   background: transparent;
   color: var(--gold);
+}
+
+/* ===== MOBILE NAV TOGGLE ===== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ===== HERO ===== */
@@ -520,9 +557,94 @@ img {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 260px;
+    height: 100vh;
+    background: var(--primary);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 90px 25px 25px;
+    transition: right 0.3s ease;
+    z-index: 1050;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+    overflow-y: auto;
+  }
+
+  .nav-links.nav-open {
+    right: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 10px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-mobile-only {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .nav-mobile-only a {
+    color: var(--gold) !important;
+    font-weight: 700;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
   .hero-content h1 { font-size: 32px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .cards-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
+
+  /* Force ALL inline multi-column grids (used across the site's pages)
+     to stack into a single column so nothing overflows the screen width. */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce large gaps that were designed for desktop, so stacked
+     items don't leave huge empty vertical space on mobile. */
+  [style*="gap:60px"],
+  [style*="gap: 60px"] {
+    gap: 25px !important;
+  }
+  [style*="gap:40px"],
+  [style*="gap: 40px"] {
+    gap: 20px !important;
+  }
+
+  /* Any inline flex row that was meant to sit side-by-side on desktop
+     should be allowed to wrap on mobile instead of overflowing. */
+  [style*="display:flex"],
+  [style*="display: flex"] {
+    flex-wrap: wrap !important;
+  }
+
+  .section { padding: 50px 0; }
+  .container { padding: 0 18px; }
+  .section-header h2 { font-size: 26px; }
+  .hero-content { padding: 0 18px; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .hero-buttons a, .hero-buttons button { text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 26px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .stat-item h3 { font-size: 32px; }
 }

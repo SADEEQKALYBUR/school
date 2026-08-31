@@ -187,11 +187,16 @@
         <li><a href="/website/gallery.html">Gallery</a></li>
         <li><a href="/website/news.html">News</a></li>
         <li><a href="/website/contact.html">Contact</a></li>
+      <li class="nav-mobile-only"><a href="/portal/login">🎓 Student Portal</a></li>
+        <li class="nav-mobile-only"><a href="/auth/login">🔐 Admin Login</a></li>
       </ul>
       <div class="nav-actions">
         <a href="/portal/login" class="btn-portal">Student Portal</a>
         <a href="/auth/login" class="btn-admin">Admin Login</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -432,6 +437,26 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLightbox();
     });
+  </script>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          links.classList.toggle('nav-open');
+          toggle.classList.toggle('active');
+        });
+        // Close menu when a link is clicked
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            links.classList.remove('nav-open');
+            toggle.classList.remove('active');
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
