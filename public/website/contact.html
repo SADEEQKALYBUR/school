@@ -412,14 +412,14 @@
       const message = document.getElementById('contact_message').value.trim();
 
       if (!name || !phone || !subject || !message) {
-        alert('Da fatan za a cika dukan required fields!');
+        alert('Please fill in all required fields!');
         return;
       }
 
       const btn = document.querySelector('.contact-form button[onclick="sendMessage()"]');
       const originalText = btn ? btn.textContent : null;
       if (btn) {
-        btn.textContent = '⏳ Ana aikawa...';
+        btn.textContent = '⏳ Sending...';
         btn.disabled = true;
       }
 

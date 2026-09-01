@@ -19,28 +19,28 @@ router.post('/api/contact', async (req, res) => {
 
   try {
     if (!name || !phone || !subject || !message) {
-      return res.json({ success: false, message: 'Da fatan za a cika dukan required fields!' });
+      return res.json({ success: false, message: 'Please fill in all required fields!' });
     }
 
     await sendMail({
       to: process.env.GMAIL_USER,
       replyTo: email || undefined,
-      subject: `📩 Sabon Message daga Website: ${subject}`,
+      subject: `📩 New Message from Website: ${subject}`,
       html: `
-        <h2>Sabon Message daga Contact Page</h2>
-        <p><strong>Suna:</strong> ${name}</p>
-        <p><strong>Waya:</strong> ${phone}</p>
-        <p><strong>Email:</strong> ${email || 'Ba a bayar ba'}</p>
-        <p><strong>Batu:</strong> ${subject}</p>
+        <h2>New Message from Contact Page</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     });
 
-    res.json({ success: true, message: 'An aika message dinka cikin nasara!' });
+    res.json({ success: true, message: 'Your message was sent successfully!' });
   } catch (err) {
     console.error('Contact email error:', err);
-    res.json({ success: false, message: 'An samu matsala wajen aika message. Ka sake gwadawa.' });
+    res.json({ success: false, message: 'There was a problem sending your message. Please try again.' });
   }
 });
 
@@ -170,7 +170,7 @@ router.post('/api/apply/submit-test', upload.single('passport_photo'), async (re
 
   try {
     if (!full_name || !gender || !date_of_birth || !applying_for || !parent_name || !parent_phone) {
-      return res.json({ success: false, message: 'Da fatan za a cika dukan required fields!' });
+      return res.json({ success: false, message: 'Please fill in all required fields!' });
     }
 
     const passport_photo = req.file ? req.file.filename : null;
@@ -208,7 +208,7 @@ router.post('/api/apply/initiate-payment', upload.single('passport_photo'), asyn
 
   try {
     if (!full_name || !gender || !date_of_birth || !applying_for || !parent_name || !parent_phone) {
-      return res.json({ success: false, message: 'Da fatan za a cika dukan required fields!' });
+      return res.json({ success: false, message: 'Please fill in all required fields!' });
     }
 
     if (!parent_email) {

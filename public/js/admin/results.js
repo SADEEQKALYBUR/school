@@ -109,7 +109,7 @@ async function saveResult() {
 
   // Validate
   if (!session_id || !term || !student_id || !subject_id || !ca_score || !exam_score) {
-    msg.textContent = 'Da fatan za a cika dukan fields!';
+    msg.textContent = 'Please fill in all fields!';
     msg.className = 'form-msg error';
     return;
   }
@@ -190,7 +190,7 @@ async function addSession() {
   const msg = document.getElementById('session-msg');
 
   if (!session_name) {
-    msg.textContent = 'Da fatan za a rubuta session name!';
+    msg.textContent = 'Please enter a session name!';
     msg.className = 'form-msg error';
     return;
   }

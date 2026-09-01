@@ -50,7 +50,7 @@ async function addClass() {
 
   // Validate
   if (!class_name || !class_code || !level) {
-    msg.textContent = 'Da fatan za a cika dukan fields!';
+    msg.textContent = 'Please fill in all fields!';
     msg.className = 'form-msg error';
     return;
   }

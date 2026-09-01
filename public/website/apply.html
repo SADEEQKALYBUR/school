@@ -553,7 +553,7 @@
       const errorMsg = document.getElementById('errorMsg');
 
       if (!full_name || !gender || !date_of_birth || !applying_for || !parent_name || !parent_phone) {
-        errorMsg.textContent = '❌ Da fatan za a cika dukan required fields!';
+        errorMsg.textContent = '❌ Please fill in all required fields!';
         errorMsg.style.display = 'block';
         return;
       }
@@ -565,7 +565,7 @@
       }
 
       if (!declaration) {
-        errorMsg.textContent = '❌ Da fatan za a yarda da declaration!';
+        errorMsg.textContent = '❌ Please agree to the declaration!';
         errorMsg.style.display = 'block';
         return;
       }
@@ -634,7 +634,7 @@ if (data.success) {
       const result = document.getElementById('statusResult');
 
       if (!phone) {
-        result.innerHTML = '<p style="color:red; text-align:center">Da fatan za a saka phone number!</p>';
+        result.innerHTML = '<p style="color:red; text-align:center">Please enter your phone number!</p>';
         return;
       }
 

@@ -205,7 +205,7 @@ async function makePayment() {
   const msg = document.getElementById('payment-msg');
 
   if (!payment_type || !session_id) {
-    msg.textContent = 'Da fatan za a zaɓi Payment Type da Session!';
+    msg.textContent = 'Please select Payment Type and Session!';
     msg.style.color = 'red';
     return;
   }

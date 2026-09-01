@@ -45,7 +45,7 @@ async function generateCard() {
   const student_id = document.getElementById('student_id').value;
 
   if (!student_id) {
-    alert('Da fatan za a zaɓi student!');
+    alert('Please select a student!');
     return;
   }
 
@@ -89,7 +89,7 @@ async function generateAll() {
   const class_id = document.getElementById('class_id').value;
 
   if (!class_id) {
-    alert('Da fatan za a zaɓi class!');
+    alert('Please select a class!');
     return;
   }
 

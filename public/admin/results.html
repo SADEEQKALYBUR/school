@@ -31,6 +31,7 @@
   <div class="main-content">
 
     <!-- Topbar -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menu">☰</button>
     <div class="topbar">
       <h2>Result Management</h2>
       <div class="admin-info">
@@ -154,5 +155,29 @@
   </div>
 
   <script src="/js/admin/results.js"></script>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('sidebarToggle');
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (toggle && sidebar && overlay) {
+        function closeSidebar() {
+          sidebar.classList.remove('sidebar-open');
+          overlay.classList.remove('active');
+        }
+        toggle.addEventListener('click', function() {
+          sidebar.classList.toggle('sidebar-open');
+          overlay.classList.toggle('active');
+        });
+        overlay.addEventListener('click', closeSidebar);
+        sidebar.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', closeSidebar);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

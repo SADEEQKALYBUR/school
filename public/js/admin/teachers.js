@@ -104,7 +104,7 @@ async function addTeacher() {
   const msg = document.getElementById('teacher-msg');
 
   if (!full_name || !email || !password) {
-    msg.textContent = '❌ Da fatan za a cika Name, Email da Password!';
+    msg.textContent = '❌ Please fill in Name, Email and Password!';
     msg.className = 'form-msg error';
     return;
   }

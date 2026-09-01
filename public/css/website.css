@@ -613,8 +613,13 @@ img {
 
   /* Force ALL inline multi-column grids (used across the site's pages)
      to stack into a single column so nothing overflows the screen width. */
-  [style*="grid-template-columns"] {
+  [style*="grid-template-columns"],
+  .form-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .form-group.full {
+    grid-column: span 1 !important;
   }
 
   /* Reduce large gaps that were designed for desktop, so stacked

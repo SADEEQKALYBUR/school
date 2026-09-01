@@ -567,7 +567,7 @@
       const session_id = document.getElementById('attSession').value;
 
       if (!date) {
-        alert('Da fatan za a zaɓi ranar!');
+        alert('Please select a date!');
         return;
       }
 
@@ -635,12 +635,12 @@
       const msg = document.getElementById('attMsg');
 
       if (!date) {
-        msg.innerHTML = '<span style="color:red">❌ Da fatan za a zaɓi ranar!</span>';
+        msg.innerHTML = '<span style="color:red">❌ Please select a date!</span>';
         return;
       }
 
       if (Object.keys(attendanceData).length === 0) {
-        msg.innerHTML = '<span style="color:red">❌ Da fatan za a saka attendance na akalla dalibi ɗaya!</span>';
+        msg.innerHTML = '<span style="color:red">❌ Please mark attendance for at least one student!</span>';
         return;
       }
 
@@ -675,7 +675,7 @@
       const msg = document.getElementById('resultMsg');
 
       if (!student_id || !session_id || !term || !ca_score || !exam_score) {
-        msg.textContent = '❌ Da fatan za a cika dukan fields!';
+        msg.textContent = '❌ Please fill in all fields!';
         msg.className = 'form-msg error';
         msg.style.display = 'block';
         return;
