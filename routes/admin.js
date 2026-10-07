@@ -4,6 +4,7 @@ const db = require('../db');
 const path = require('path');
 const { isAdmin } = require('../middleware/auth');
 const upload = require('../config/upload');
+const { buildMarksheetHTML } = require('../config/marksheetTemplate');
 
 // ===== DASHBOARD =====
 router.get('/dashboard', isAdmin, async (req, res) => {
@@ -613,6 +614,79 @@ router.post('/api/fee-types/delete', isAdmin, async (req, res) => {
     await db.execute('DELETE FROM fee_types WHERE id = ?', [id]);
     res.json({ success: true, message: 'Fee deleted!' });
   } catch (err) {
+    res.json({ success: false, message: err.message });
+  }
+});
+
+// GET - Download Marksheet PDF for any student (admin)
+router.get('/api/marksheet/:student_id/:session_id/:term', isAdmin, async (req, res) => {
+  try {
+    const { student_id, session_id, term } = req.params;
+
+    const [students] = await db.execute(`
+      SELECT s.*, c.class_name
+      FROM students s
+      LEFT JOIN classes c ON s.class_id = c.id
+      WHERE s.id = ?
+    `, [student_id]);
+
+    if (students.length === 0) {
+      return res.json({ success: false, message: 'Student not found!' });
+    }
+    const student = students[0];
+
+    const [results] = await db.execute(`
+      SELECT r.*, sub.subject_name
+      FROM results r
+      LEFT JOIN subjects sub ON r.subject_id = sub.id
+      WHERE r.student_id = ? AND r.session_id = ? AND r.term = ?
+      ORDER BY sub.subject_name ASC
+    `, [student_id, session_id, term]);
+
+    const [sessionRows] = await db.execute(
+      'SELECT session_name FROM sessions WHERE id = ?', [session_id]
+    );
+    const session_name = sessionRows.length ? sessionRows[0].session_name : '';
+
+    const [attRows] = await db.execute(`
+      SELECT
+        SUM(CASE WHEN status = 'present' THEN 1 ELSE 0 END) AS present_count,
+        COUNT(*) AS total_count
+      FROM attendance
+      WHERE student_id = ? AND session_id = ?
+    `, [student_id, session_id]);
+
+    let attendance_percent = null;
+    if (attRows.length && attRows[0].total_count > 0) {
+      attendance_percent = Math.round((attRows[0].present_count / attRows[0].total_count) * 100);
+    }
+
+    const html = buildMarksheetHTML(student, results, {
+      session_name,
+      term,
+      attendance_percent,
+    });
+
+    const puppeteer = require('puppeteer');
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle0' });
+    const pdf = await page.pdf({
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '15px', bottom: '15px', left: '15px', right: '15px' }
+    });
+    await browser.close();
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="Marksheet-${student.full_name}-${term}.pdf"`);
+    res.send(pdf);
+
+  } catch (err) {
+    console.log(err);
     res.json({ success: false, message: err.message });
   }
 });

@@ -422,6 +422,14 @@
             <button class="t-btn gold" onclick="saveResult()">💾 Save Result</button>
           </div>
         </div>
+        <div class="t-form-row">
+          <div class="t-form-group">
+            <label>&nbsp;</label>
+            <button class="t-btn" onclick="downloadTeacherMarksheet()" style="background:#0a1628; color:#fff;">
+              📄 Download Marksheet PDF
+            </button>
+          </div>
+        </div>
         <div id="resultMsg" class="form-msg" style="display:none"></div>
       </div>
 
@@ -682,14 +690,14 @@
       }
 
       if (parseFloat(ca_score) > 40) {
-        msg.textContent = '❌ CA Score ya wuce 40!';
+        msg.textContent = '❌ CA Score cannot exceed 40!';
         msg.className = 'form-msg error';
         msg.style.display = 'block';
         return;
       }
 
       if (parseFloat(exam_score) > 60) {
-        msg.textContent = '❌ Exam Score ya wuce 60!';
+        msg.textContent = '❌ Exam Score cannot exceed 60!';
         msg.className = 'form-msg error';
         msg.style.display = 'block';
         return;
@@ -720,6 +728,20 @@
         msg.className = 'form-msg error';
         msg.style.display = 'block';
       }
+    }
+
+    // Download marksheet PDF for the selected student/session/term
+    function downloadTeacherMarksheet() {
+      const student_id = document.getElementById('resultStudent').value;
+      const session_id = document.getElementById('resultSession').value;
+      const term = document.getElementById('resultTerm').value;
+
+      if (!student_id || !session_id || !term) {
+        alert('Please select a Student, Session and Term first!');
+        return;
+      }
+
+      window.open(`/teacher/api/marksheet/${student_id}/${session_id}/${term}`, '_blank');
     }
 
     // Load results

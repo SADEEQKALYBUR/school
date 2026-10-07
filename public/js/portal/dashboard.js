@@ -195,6 +195,38 @@ async function loadPaymentSessions() {
   });
 }
 
+// Load sessions into the marksheet dropdown
+async function loadMarksheetSessions() {
+  const select = document.getElementById('marksheetSession');
+  if (!select) return;
+
+  const sesRes = await fetch('/portal/api/sessions');
+  const sesData = await sesRes.json();
+
+  if (!sesData.success || sesData.data.length === 0) {
+    select.innerHTML = '<option value="">No sessions found</option>';
+    return;
+  }
+
+  select.innerHTML = '';
+  sesData.data.forEach(s => {
+    select.innerHTML += `<option value="${s.id}">${s.session_name}</option>`;
+  });
+}
+
+// Download the marksheet PDF for the selected session/term
+function downloadMarksheet() {
+  const session_id = document.getElementById('marksheetSession').value;
+  const term = document.getElementById('marksheetTerm').value;
+
+  if (!session_id || !term) {
+    alert('Please select a session and term!');
+    return;
+  }
+
+  window.open(`/portal/api/marksheet/${session_id}/${term}`, '_blank');
+}
+
 // Make payment
 async function makePayment() {
   const select = document.getElementById('paymentType');
@@ -436,3 +468,4 @@ loadStudentInfo();
 loadResults();
 loadIDCard();
 loadAdmissionLetter();
+loadMarksheetSessions();

@@ -115,13 +115,13 @@ async function saveResult() {
   }
 
   if (parseFloat(ca_score) > 40) {
-    msg.textContent = 'CA Score ya wuce 40!';
+    msg.textContent = 'CA Score cannot exceed 40!';
     msg.className = 'form-msg error';
     return;
   }
 
   if (parseFloat(exam_score) > 60) {
-    msg.textContent = 'Exam Score ya wuce 60!';
+    msg.textContent = 'Exam Score cannot exceed 60!';
     msg.className = 'form-msg error';
     return;
   }
@@ -148,6 +148,20 @@ async function saveResult() {
     msg.textContent = '❌ ' + data.message;
     msg.className = 'form-msg error';
   }
+}
+
+// Download marksheet PDF for the selected student/session/term
+function downloadAdminMarksheet() {
+  const session_id = document.getElementById('session_id').value;
+  const term = document.getElementById('term').value;
+  const student_id = document.getElementById('student_id').value;
+
+  if (!session_id || !term || !student_id) {
+    alert('Please select a Session, Term and Student first!');
+    return;
+  }
+
+  window.open(`/admin/api/marksheet/${student_id}/${session_id}/${term}`, '_blank');
 }
 
 // Load all results
